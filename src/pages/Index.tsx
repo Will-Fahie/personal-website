@@ -1,11 +1,5 @@
 import { Mail, Linkedin, ExternalLink } from "lucide-react";
 import profileImage from "@/assets/william-fahie-profile.png";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.png";
-import gallery6 from "@/assets/gallery-6.png";
 
 const Index = () => {
   const featuredWork = [
@@ -36,30 +30,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background Gallery */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.15] -z-10">
-        <div className="absolute top-10 left-10 w-48 h-48 rounded-lg overflow-hidden rotate-12">
-          <img src={gallery1} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute top-40 right-20 w-40 h-40 rounded-lg overflow-hidden -rotate-6">
-          <img src={gallery2} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute bottom-32 left-20 w-56 h-56 rounded-lg overflow-hidden rotate-6">
-          <img src={gallery3} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute top-1/3 right-10 w-44 h-44 rounded-lg overflow-hidden -rotate-12">
-          <img src={gallery4} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute bottom-20 right-32 w-52 h-52 rounded-lg overflow-hidden rotate-3">
-          <img src={gallery5} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute top-20 left-1/3 w-48 h-48 rounded-lg overflow-hidden -rotate-3">
-          <img src={gallery6} alt="" className="w-full h-full object-cover" />
-        </div>
-      </div>
-      
-      <div className="max-w-2xl mx-auto relative z-10">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto">
         {/* Header Section */}
         <header className="text-center mb-16">
           <div className="mb-6">
