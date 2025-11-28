@@ -38,7 +38,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Gallery */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] -z-10">
+      <div className="fixed inset-0 pointer-events-none opacity-[0.15] -z-10">
         <div className="absolute top-10 left-10 w-48 h-48 rounded-lg overflow-hidden rotate-12">
           <img src={gallery1} alt="" className="w-full h-full object-cover" />
         </div>
