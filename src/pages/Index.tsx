@@ -1,4 +1,4 @@
-import { Mail, Linkedin, ExternalLink, FileText } from "lucide-react";
+import { Mail, Linkedin, Instagram, ExternalLink, FileText } from "lucide-react";
 import profileImage from "@/assets/william-fahie-profile.png";
 import as35Report from "@/assets/research/AS35 report.pdf";
 import epqReport from "@/assets/research/EPQ.pdf";
@@ -84,6 +84,15 @@ const Index = () => {
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5 text-foreground" />
+            </a>
+            <a 
+              href="https://www.instagram.com/will_fahie?igsh=MWlhcTFkZTNhdGMydA%3D%3D&utm_source=qr"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5 text-foreground" />
             </a>
             <a 
               href="mailto:williamfahie@outlook.com"
