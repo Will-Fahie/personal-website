@@ -1,5 +1,11 @@
 import { Mail, Linkedin, ExternalLink } from "lucide-react";
 import profileImage from "@/assets/william-fahie-profile.png";
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
+import gallery5 from "@/assets/gallery-5.png";
+import gallery6 from "@/assets/gallery-6.png";
 
 const Index = () => {
   const featuredWork = [
@@ -8,6 +14,12 @@ const Index = () => {
       subtitle: "AI for Social Value & ESG",
       description: "Co-founder. Automating social value commitments for public sector tenders using causal AI.",
       link: "https://www.parrock.uk"
+    },
+    {
+      title: "Oxford University Amateur Boxing Club",
+      subtitle: "144th President",
+      description: "144th president of the Oxford University Amateur Boxing Club (OUABC).",
+      link: "https://ouabc.com"
     },
     {
       title: "Achuar Language Preservation",
@@ -24,8 +36,30 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background Gallery */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] -z-10">
+        <div className="absolute top-10 left-10 w-48 h-48 rounded-lg overflow-hidden rotate-12">
+          <img src={gallery1} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute top-40 right-20 w-40 h-40 rounded-lg overflow-hidden -rotate-6">
+          <img src={gallery2} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute bottom-32 left-20 w-56 h-56 rounded-lg overflow-hidden rotate-6">
+          <img src={gallery3} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute top-1/3 right-10 w-44 h-44 rounded-lg overflow-hidden -rotate-12">
+          <img src={gallery4} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute bottom-20 right-32 w-52 h-52 rounded-lg overflow-hidden rotate-3">
+          <img src={gallery5} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute top-20 left-1/3 w-48 h-48 rounded-lg overflow-hidden -rotate-3">
+          <img src={gallery6} alt="" className="w-full h-full object-cover" />
+        </div>
+      </div>
+      
+      <div className="max-w-2xl mx-auto relative z-10">
         {/* Header Section */}
         <header className="text-center mb-16">
           <div className="mb-6">
@@ -41,13 +75,13 @@ const Index = () => {
           </h1>
           
           <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-relaxed max-w-xl mx-auto">
-            Physics @ Oxford University. Founder @ Parrock. Building Human-Value Aligned Systems.
+            Physics @ Oxford University. Founder, Boxer, AI Enthusiast.
           </p>
           
           {/* Social Links */}
           <div className="flex justify-center gap-4">
             <a 
-              href="https://www.linkedin.com/in/william-fahie" 
+              href="https://www.linkedin.com/in/williamfahie/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
@@ -56,7 +90,7 @@ const Index = () => {
               <Linkedin className="w-5 h-5 text-foreground" />
             </a>
             <a 
-              href="mailto:william.fahie@pmb.ox.ac.uk"
+              href="mailto:williamfahie@outlook.com"
               className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
               aria-label="Email"
             >
