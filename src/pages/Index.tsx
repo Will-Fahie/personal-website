@@ -1,5 +1,5 @@
 import { Mail, Linkedin, ExternalLink } from "lucide-react";
-import profileImage from "@/assets/profile-placeholder.jpg";
+import profileImage from "@/assets/william-fahie-profile.png";
 
 const Index = () => {
   const featuredWork = [
