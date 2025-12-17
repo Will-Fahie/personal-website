@@ -338,11 +338,6 @@ const Index = () => {
             </div>
           </section>
         </div>
-
-        {/* Footer */}
-        <footer className="text-center text-sm text-muted-foreground pt-8 border-t border-border">
-          <p>© 2025 William Fahie. Based in Oxford, UK.</p>
-        </footer>
       </div>
     </div>
   );
