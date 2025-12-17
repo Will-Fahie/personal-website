@@ -252,6 +252,14 @@ const Index = () => {
                     </ul>
                   </li>
                   <li>
+                    Physics blog (2022)
+                    <ul className="list-square list-inside ml-6 mt-1 space-y-1 text-xs">
+                      <li>
+                        <a href="https://thephysicsfootprint.wordpress.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://thephysicsfootprint.wordpress.com</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
                     Summer intern at Magdrive (2021)
                     <ul className="list-square list-inside ml-6 mt-1 space-y-1 text-xs">
                     <li>
