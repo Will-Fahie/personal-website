@@ -1,6 +1,7 @@
 import { Mail, Linkedin, Instagram, ExternalLink, FileText, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import as35Report from "@/assets/research/AS35 report.pdf";
 import epqReport from "@/assets/research/EPQ.pdf";
 import protoDuneReport from "@/assets/research/ProtoDUNE report.pdf";
@@ -193,9 +194,15 @@ const Index = () => {
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="about" className="mt-6 text-sm text-muted-foreground leading-relaxed">
-                <p>
-                  I'm a fourth-year physics undergraduate at Oxford University. Interested in Human Value Alignment in AI and multi-planetary colonisation. Experienced video editor, writer and programmer. Hungry to learn and build.
+                <p className="mb-4">
+                  I'm a fourth-year physics student at Oxford University. Experienced video editor, writer and programmer. Hungry to learn and ready to build.
                 </p>
+                <a href="/CV.pdf" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="w-full sm:w-auto">
+                    <FileText className="w-4 h-4 mr-2" />
+                    View CV
+                  </Button>
+                </a>
               </TabsContent>
               <TabsContent value="achievements" className="mt-6 text-sm text-muted-foreground leading-relaxed">
                 <ul className="list-disc list-inside space-y-2">
