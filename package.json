@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "packageManager": "npm@10.9.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Will-Fahie/personal-website.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
