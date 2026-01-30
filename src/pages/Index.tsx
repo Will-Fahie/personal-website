@@ -1,5 +1,5 @@
 import { Mail, Linkedin, Instagram, Github, ExternalLink, FileText, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import as35Report from "@/assets/research/AS35 report.pdf";
@@ -21,6 +21,31 @@ const pictures = [picture1, picture2, picture3, picture4, picture5, picture7, pi
 const Index = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const profileRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+  const researchRef = useRef<HTMLElement>(null);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+        }
+      });
+    }, observerOptions);
+
+    [profileRef, projectsRef, researchRef].forEach(ref => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (isPaused) return;
@@ -97,10 +122,10 @@ const Index = () => {
         {/* Three Column Layout: Profile, Projects, and Research */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {/* Profile Section */}
-          <section className="text-center lg:text-left mt-8 lg:mt-12">
+          <section ref={profileRef} className="text-center lg:text-left mt-8 lg:mt-12 opacity-0">
             <div className="mb-6 relative w-full max-w-sm mx-auto lg:mx-0">
               <div 
-                className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-border shadow-lg"
+                className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-border shadow-2xl"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
               >
@@ -148,35 +173,35 @@ const Index = () => {
                 href="https://www.linkedin.com/in/williamfahie/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
+                className="p-3 rounded-full bg-card/50 backdrop-blur-sm hover:bg-blue-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 border border-border group"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5 text-foreground" />
+                <Linkedin className="w-5 h-5 text-foreground group-hover:text-white transition-colors" />
               </a>
               <a 
                 href="https://www.instagram.com/will_fahie?igsh=MWlhcTFkZTNhdGMydA%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
+                className="p-3 rounded-full bg-card/50 backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 border border-border group"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5 text-foreground" />
+                <Instagram className="w-5 h-5 text-foreground group-hover:text-white transition-colors" />
               </a>
               <a 
                 href="mailto:williamfahie@outlook.com"
-                className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
+                className="p-3 rounded-full bg-card/50 backdrop-blur-sm hover:bg-cyan-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 border border-border group"
                 aria-label="Email"
               >
-                <Mail className="w-5 h-5 text-foreground" />
+                <Mail className="w-5 h-5 text-foreground group-hover:text-white transition-colors" />
               </a>
               <a 
                 href="https://github.com/Will-Fahie"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
+                className="p-3 rounded-full bg-card/50 backdrop-blur-sm hover:bg-gray-800 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-gray-800/50 transition-all duration-300 border border-border group"
                 aria-label="GitHub"
               >
-                <Github className="w-5 h-5 text-foreground" />
+                <Github className="w-5 h-5 text-foreground group-hover:text-white transition-colors" />
               </a>
             </div>
 
@@ -287,7 +312,7 @@ const Index = () => {
             </Tabs>
           </section>
           {/* Projects Section */}
-          <section>
+          <section ref={projectsRef} className="opacity-0">
             <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">
               Ongoing Projects
             </h2>
@@ -299,29 +324,35 @@ const Index = () => {
                   href={work.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-card rounded-lg p-6 sm:p-8 border border-border card-hover group"
+                  className="block bg-card/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-border card-hover group relative overflow-hidden"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {work.title}
-                    </h3>
-                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0 ml-2" />
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-cyan-500/0 group-hover:from-blue-500/5 group-hover:via-purple-500/5 group-hover:to-cyan-500/5 transition-all duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-3">
+                      <h3 className="text-xl font-semibold text-foreground group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        {work.title}
+                      </h3>
+                      <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-blue-500 group-hover:scale-110 transition-all duration-300 flex-shrink-0 ml-2" />
+                    </div>
+                    
+                    <p className="text-sm font-medium text-muted-foreground mb-3">
+                      {work.subtitle}
+                    </p>
+                    
+                    <p className="text-foreground leading-relaxed">
+                      {work.description}
+                    </p>
                   </div>
-                  
-                  <p className="text-sm font-medium text-muted-foreground mb-3">
-                    {work.subtitle}
-                  </p>
-                  
-                  <p className="text-foreground leading-relaxed">
-                    {work.description}
-                  </p>
                 </a>
               ))}
             </div>
           </section>
 
           {/* Research Section */}
-          <section>
+          <section ref={researchRef} className="opacity-0">
             <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">
               Research
             </h2>
@@ -333,22 +364,28 @@ const Index = () => {
                   href={paper.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-card rounded-lg p-6 sm:p-8 border border-border card-hover group"
+                  className="block bg-card/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-border card-hover group relative overflow-hidden"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {paper.title}
-                    </h3>
-                    <FileText className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0 ml-2" />
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-purple-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-3">
+                      <h3 className="text-xl font-semibold text-foreground group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-cyan-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        {paper.title}
+                      </h3>
+                      <FileText className="w-5 h-5 text-muted-foreground group-hover:text-purple-500 group-hover:scale-110 transition-all duration-300 flex-shrink-0 ml-2" />
+                    </div>
+                    
+                    <p className="text-sm font-medium text-muted-foreground mb-3">
+                      {paper.subtitle}
+                    </p>
+                    
+                    <p className="text-foreground leading-relaxed">
+                      {paper.description}
+                    </p>
                   </div>
-                  
-                  <p className="text-sm font-medium text-muted-foreground mb-3">
-                    {paper.subtitle}
-                  </p>
-                  
-                  <p className="text-foreground leading-relaxed">
-                    {paper.description}
-                  </p>
                 </a>
               ))}
             </div>
