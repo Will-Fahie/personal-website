@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Instagram, ExternalLink, FileText, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Linkedin, Instagram, Github, ExternalLink, FileText, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -168,6 +168,15 @@ const Index = () => {
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5 text-foreground" />
+              </a>
+              <a 
+                href="https://github.com/Will-Fahie"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-card hover:bg-accent transition-colors border border-border"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5 text-foreground" />
               </a>
             </div>
 
