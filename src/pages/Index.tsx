@@ -245,8 +245,9 @@ const Index = () => {
                   <li>Sixth Form: Morcom Prize for Mathematics Turing Prize for Computer Science</li>
                   <li>Top 50 A Level Computer Science Students in the UK</li>
                   <li>50/50 EPQ - project now used as student exemplary work</li>
-                  <li>Pembroke College Academic Scholarship (£1000) - 2 years in a row</li>
-                  <li>Pembroke College Roger Bannister Award (£300)</li>
+                  <li>Pembroke College Academic Scholarship - 2 years in a row</li>
+                  <li>Pembroke College Roger Bannister Award</li>
+                  <li>Oxford University Crankstart Scholar</li>
                 </ul>
               </TabsContent>
               <TabsContent value="experiences" className="mt-6 text-sm text-muted-foreground leading-relaxed">
@@ -280,7 +281,7 @@ const Index = () => {
                   Video Editor for Newsthink (2023-2024)
                   <ul className="list-square list-inside ml-6 mt-1 space-y-1 text-xs">
                     <li>
-                      Most successful edit now has &gt;3 million views: <br/><a href="https://www.instagram.com/p/CxLBReeM-iG/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://www.instagram.com/p/CxLBReeM-iG/</a>
+                      Most successful edit now has &gt;3 million views: <br/><a href="https://youtu.be/40KljLO1c_o?si=xyma36GfFMzP3CkF" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://youtu.be/40KljLO1c_o?si=xyma36GfFMzP3CkF</a>
                     </li>
                   </ul>
                   </li>
